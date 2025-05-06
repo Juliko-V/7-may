@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Hey, babygirl</title>
+  <style>
+    /* Твой оригинальный CSS */
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+    body { font-family: 'Quicksand', sans-serif; text-align: center; background: #fdf6f9; padding: 60px 20px; color: #333; overflow-x: hidden; }
+    h1 { font-size: 2.8rem; margin-bottom: 2rem; color: #444; }
+    #timer { font-size: 6rem; font-weight: bold; margin-bottom: 30px; color: #aa4465; }
+    #image-container { margin: 30px 0; }
+    #changing-image { width: 500px; max-width: 90%; height: auto; border-radius: 24px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); transition: opacity 0.4s ease-in-out; }
+    #main-button { display: none; margin-top: 50px; padding: 16px 36px; font-size: 1.3rem; background-color: #aa4465; color: white; border: none; border-radius: 20px; cursor: pointer; box-shadow: 0 6px 14px rgba(170, 68, 101, 0.3); transition: background-color 0.3s ease, transform 0.2s ease; }
+    #main-button:hover { background-color: #912f50; transform: scale(1.04); }
+    footer { margin-top: 60px; font-size: 0.9rem; color: #777; }
+    .confetti { position: fixed; top: 0; background-color: red; opacity: 0.7; z-index: 999; animation: fall linear forwards; pointer-events: none; }
+    @keyframes fall { to { transform: translateY(100vh) rotate(360deg); opacity: 0; } }
+  </style>
+</head>
+<body>
+  <h1>Бог терпел и нам велел</h1>
+  <div id="timer">10</div>
+  <div id="image-container">
+    <img id="changing-image" src="https://sun9-18.userapi.com/impg/ajh88lOi4HYRdqDWOeHJVUOdjajWJdc-4RRyhw/451V9-LkBew.jpg?size=570x423&quality=96&sign=9abaacf0e4b7a65e95a97eb76b516484&type=album" alt="лол не грузит">
+  </div>
+  <button id="main-button">смотри под подушкой</button>
+  <footer>Важное напоминание: влюблённый волк уже не хищник</footer>
+
+  <script>
+    let seconds = 10;
+    const timerElement = document.getElementById('timer');
+    const imageElement = document.getElementById('changing-image');
+    const mainButton = document.getElementById('main-button');
+
+    const images = [
+      'https://sun9-75.userapi.com/impg/KxfAXL7PvG3dl96IKv8ZG6HD5SZV9wGJtswDUQ/rTPxOd7ucYQ.jpg?size=405x547&quality=95&sign=f5c0ae015196813c20ea242a98773afb&type=album', 'https://sun9-33.userapi.com/impg/a5F3FH1tyaQKWuhjmJRNQ-hSdu97cyzRQf6fKw/cBk92wa_Qd8.jpg?size=780x1688&quality=95&sign=d5e6bde7be4833bea966374e9ce778e3&type=album', 'https://sun9-55.userapi.com/impg/NwQQZELdBSsCSdNA6oHXipxtLwMLzrZsyV6iYw/qlHtzlrNQCY.jpg?size=1266x1688&quality=95&sign=b053a95523b85b88d37a46cc18a8f3d3&type=album', 
+      'https://sun9-29.userapi.com/impg/BzXPUJGIflQCLlJIBHXztYvx3Y20XEif5WHNGw/0e_bWtrfT0c.jpg?size=448x244&quality=95&sign=a9e4433d96c1ff3b0190cbfdefcd7345&type=album', 'https://sun9-48.userapi.com/impg/osx0SPUTPeF9JJT4sSDx0px8XL3U0Nc2M6IZJQ/URSpTf-DXjA.jpg?size=1920x1440&quality=95&sign=441a0cac5d6a7104e6cf2f1930bc19a3&type=album',
+      'https://sun9-19.userapi.com/impg/-3C4nGxJ1yYYw8k4r01TdxZ_tHsQJ01JbOuNxA/bD5v5Vco6AM.jpg?size=1266x1688&quality=95&sign=e66bb91f0f40d1e84838478fab20714a&type=album', 
+      'https://sun9-4.userapi.com/impg/GbjI_S0hZYSMZYxMvGjt8NAoV-sW9zBxJlsaCA/QJdpZTrJbgk.jpg?size=667x1000&quality=95&sign=c2066ed1b48794336c41a86f9eca8774&type=album', 
+      'https://sun9-76.userapi.com/impg/tmqZutdG2F9SqlD123Ty0KfFRGij7lB_Gt4WQQ/jIuKbCQrtL4.jpg?size=1266x1688&quality=95&sign=911f1687cb9bb44ffe323e08ac8bd1bc&type=album', 
+      'https://sun9-43.userapi.com/impg/Y5nBUtCg8XLV2Om9hctpCc_5GcHbSbxrDIiusA/yxAHSPLaMCQ.jpg?size=1920x1806&quality=95&sign=fa3f01e3aaf38d3d064f805c26480be5&type=album', 'https://sun9-76.userapi.com/impg/gDfY_FWcbPwQDTRxIBmtaLgo2Mws8e49eyyK4w/G2q5cU745rI.jpg?size=640x440&quality=95&sign=c49a1ebe15bbf9c30ea041703dd17578&type=album'
+    ];
+
+    const interval = setInterval(() => {
+      if (seconds > 0) {
+        seconds--;
+        timerElement.textContent = seconds;
+        imageElement.style.opacity = 0;
+        setTimeout(() => {
+          imageElement.src = images[10 - seconds - 1];
+          imageElement.style.opacity = 1;
+        }, 250);
+      } else {
+        clearInterval(interval);
+        timerElement.textContent = 'Прыгни, хлопни и...';
+        mainButton.style.display = 'inline-block';
+        launchConfetti();
+      }
+    }, 1000);
+
+    function launchConfetti() {
+      const confettiCount = 300;
+      for (let i = 0; i < confettiCount; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.width = `${Math.random() * 8 + 4}px`;
+        confetti.style.height = confetti.style.width;
+        confetti.style.left = `${Math.random() * 100}vw`;
+        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 80%, 60%)`;
+        confetti.style.animationDuration = `${Math.random() * 3 + 3}s`;
+        document.body.appendChild(confetti);
+        setTimeout(() => confetti.remove(), 7000);
+      }
+    }
+
+    // Открываем второй файл в новой вкладке
+    mainButton.addEventListener('click', () => {
+      window.open('birthday.html', '_blank');
+    });
+  </script>
+</body>
+</html>

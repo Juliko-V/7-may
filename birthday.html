@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ты колле!</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap');
+    body { margin: 0; font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #ffe0f0 0%, #fad0c4 100%); color: #4a3f55; text-align: center; overflow-x: hidden; }
+    header { padding: 3rem 1rem; background-color: rgba(255, 240, 250, 0.7); border-bottom: 4px dashed #f8a5c2; }
+    h1 { font-family: 'Pacifico', cursive; font-size: 3.5rem; color: #ff6f91; margin-bottom: 1rem; }
+    h2 { font-size: 2rem; color: #c85c9e; margin-bottom: 1rem; }
+    .carousel { display: flex; overflow-x: auto; gap: 1rem; padding: 1rem; scroll-snap-type: x mandatory; }
+    .carousel img { width: 300px; height: auto; border-radius: 16px; scroll-snap-align: start; box-shadow: 0 4px 12px rgba(255, 105, 180, 0.3); transition: transform 0.3s ease; }
+    .carousel img:hover { transform: scale(1.05); }
+    .section { padding: 2rem; background-color: rgba(255, 250, 255, 0.8); margin: 2rem auto; border-radius: 20px; max-width: 800px; box-shadow: 0 4px 16px rgba(255, 182, 193, 0.3); }
+    .button { background-color: #f78fb3; color: white; padding: 1rem 2rem; border: none; border-radius: 16px; cursor: pointer; font-size: 1.1rem; font-weight: bold; box-shadow: 0 6px 12px rgba(255, 105, 180, 0.3); transition: background-color 0.3s ease, transform 0.2s ease; margin: 0.5rem; }
+    .button:hover { background-color: #ff6f91; transform: scale(1.05); }
+    .hidden-message { display: none; margin-top: 1.5rem; background-color: #ffeef5; padding: 1.5rem; border-radius: 12px; box-shadow: inset 0 0 10px rgba(255, 105, 180, 0.2); font-style: italic; color: #b94b7c; }
+    .note { background-color: #f8d0db; padding: 1rem; margin: 0.5rem 0; border-radius: 10px; box-shadow: 0 3px 6px rgba(255, 105, 180, 0.2); }
+    footer { padding: 2rem; font-weight: bold; color: #fff; background-color: #c85c9e; border-top: 4px dashed #f8a5c2; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Happy Birthday, шлюхочурка!</h1>
+    <p>Я решила не жестить с прозвищами в заголовке💖</p>
+  </header>
+
+  <div class="section">
+    <h2>В очередной раз вспомни молодость</h2>
+    <div class="carousel">
+      <img src="https://sun9-74.userapi.com/impg/XGWIsqTnwhsCJxMTx62DJ0EPc8SksaGi1V33zQ/QRbL8Qn5-Pg.jpg?size=960x1280&quality=95&sign=8686494a78db45e3deefd2bb2d5ac440&type=album" alt="тут ты мини кид">
+      <img src="https://sun9-50.userapi.com/impg/gmc-0FwsKvIkuMWSVFDsjoyi_hTEGXf6Fnrvkw/UnVT2xe8130.jpg?size=1266x1688&quality=95&sign=269632c8305a48d56c681d9a578c6f13&type=album" alt="тут ты побольше">
+      <img src="https://sun9-77.userapi.com/impg/6Gq93w0uZUPkRp_kAx9EdzMZqWFFkSfd0H691Q/uA0SlG5FR1o.jpg?size=960x1280&quality=95&sign=874c2a02bf497ea2e5bec755526845b0&type=album" alt="тут ты биг боссиня пту">
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>А что если бы ты была на месте Лале? 
+        Стань героиней своей мини-новеллы
+    </h2>
+    <div id="novel">
+      <p>Ты просыпаешься и…</p>
+      <button class="button" onclick="showScene('late')">опаздываешь на пару</button>
+      <button class="button" onclick="showScene('noodles')">покупаешь оранжевую лапшу</button>
+      <button class="button" onclick="showScene('gossip')">пишешь сплетни в россию</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Комфортик зона</h2>
+    <p>생일 축하해요! Ты — как дорама: затянула за месяц, а потом вспоминаю тебя годами💜</p>
+    <button class="button" onclick="document.getElementById('confessionBoard').style.display='block'">Немного милостей</button>
+    <div class="hidden-message" id="confessionBoard">
+      <div id="notesContainer"></div>
+      <button class="button" onclick="addNote()">открой меня</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <button class="button" onclick="document.getElementById('letter').style.display='block'">Небольшое послание</button>
+    <div class="hidden-message" id="letter">
+      <p>💌Родная моя Алина, это седьмой раз в моей жизни, когда мне выпадает шанс поздравить тебя. 
+        Я безмерно счастлива, о чём не перестаю повторять из года в год. Я хочу, чтобы я имела возможность говорить тебе об этом до конца жизни.
+        Этот год был многогранный: в нём было много разного - от первых серьёзных разочарований до самых потрясающих первых искренних эмоций. И я видела, как ты всё это проживала. Ты по-прежнему безмерно искренний и чувствительный человек, хотя теперь ты официально взрослая во всём мире. Я не устану восхищаться твоей тонкой душой и тобой. Возможно, в этом году я стала меньше писать или рассказывать о жизни, но это лишь из-за потерянных навыков интернет-коммуникации. Ты человек, который мотивирует меня не уйти в лес, выкинув телефон. Ты — моё сердце. Мой дом. Моя сестра.
+
+        Я тебя очень-очень люблю. Пусть у тебя всегда будет тихое счастье внутри, - а может и громкое: мы не запираем себя в рамки. Помни, что ты очень важна и ты не одна на этой планете: в каждом уголке как минимум трёх континентов тебя любят ждут и желают тебе самого лучшего в жизни. И даже если кажется, что никого нет рядом, то помни, что ты всегда в моём сердце и в моей голове. Я волнуюсь о тебе так же сильно, как и о других членах моей семьи. Я обещаю тебе быть рядом. Всегда.</p>
+    </div>
+  </div>
+
+  <footer>✨ С любовью, твоя белоликая содержанка ✨</footer>
+
+  <script>
+    const notes = [
+      "Помни, что твоя эмпатия - это не слабость, это твоя сила💖",
+      "Твоё умение слышать и находить подходящие слова - дар (я на романтишном вайбике сори)✨",
+      "Твои старания уже привели тебя к твоеё мечте с 8 класса - ты теперь студентка уклы!!!🌸"
+    ];
+    let currentNoteIndex = 0;
+
+    function showScene(choice) {
+      const novel = document.getElementById('novel');
+      if (choice === 'late') {
+        novel.innerHTML = `<p>о бооже как жаль, пойду смотреть тикток про клуб романтики</p><button class="button" onclick="showTiktok()">Открыть тикток</button>`;
+      } else if (choice === 'noodles') {
+        novel.innerHTML = `<p>вкусно, но я ранний зумер и не могу без тиктока про клуб романтики</p><button class="button" onclick="showTiktok()">Открыть тикток</button>`;
+      } else if (choice === 'gossip') {
+        novel.innerHTML = `<p>Юля скинула тикток про императора клуба романтики?</p><button class="button" onclick="showTiktok()">Открыть тикток</button>`;
+      }
+    }
+
+    function showTiktok() {
+      const novel = document.getElementById('novel');
+      novel.innerHTML += `<div style="margin-top: 1rem;"><video width="320" height="240" controls><source src="Сет.MP4" type="video/mp4">Мы чучи, видео приняло то, что нельзя называть</video></div>`;
+    }
+
+    function addNote() {
+      if (currentNoteIndex < notes.length) {
+        const noteContainer = document.getElementById('notesContainer');
+        const newNote = document.createElement('div');
+        newNote.classList.add('note');
+        newNote.innerText = notes[currentNoteIndex];
+        noteContainer.appendChild(newNote);
+        currentNoteIndex++;
+      }
+      if (currentNoteIndex >= notes.length) {
+        document.querySelector('button[onclick="addNote()"]').style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
